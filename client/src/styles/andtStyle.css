@@ -1,0 +1,13 @@
+/* Button modal */
+:where(.css-dev-only-do-not-override-1s1wi14).ant-btn-primary {
+  color: #fff;
+  background-color: #f2921d !important;
+  box-shadow: 0 2px 0 rgba(255, 180, 5, 0.08);
+}
+
+:where(.css-dev-only-do-not-override-1s1wi14).ant-btn-primary:not(
+    :disabled
+  ):hover {
+  color: #fff;
+  background-color: #ffb347 !important;
+}
