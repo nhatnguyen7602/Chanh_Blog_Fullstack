@@ -1,12 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Ysabeau:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap");
 
 :root {
+  /* Color */
   --primary-color: #f2cd5c;
   --orange-color: #f2921d;
   --purple-color: #a61f69;
   --white-color: #fff;
   --black-color: #000;
-  --text-color: #400e32;
+  --dark-color: #400e32;
+
+  /* Font-size */
+  --fs-1: 4rem;
+  --fs-2: 3.2rem;
+  --fs-3: 2.4rem;
+  --fs-4: 1.8rem;
+  --fs-5: 1.6rem;
+  --fs-6: 1.5rem;
+  --fs-7: 1.3rem;
 }
 
 img {
@@ -53,6 +63,10 @@ blockquote span {
   margin-left: 4px;
 }
 
+.mr-4 {
+  margin-right: 4px;
+}
+
 .mb-20 {
   margin-bottom: 20px;
 }
@@ -64,9 +78,11 @@ blockquote span {
 html {
   /* Hack: size = 10px */
   font-size: 62.5%;
-  line-height: 1.6rem;
+  line-height: 1.6;
   font-family: "Ysabeau", sans-serif !important;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 /* Responsive */

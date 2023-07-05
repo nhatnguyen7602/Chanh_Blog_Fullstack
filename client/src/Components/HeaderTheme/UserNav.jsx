@@ -1,5 +1,5 @@
 import React from "react";
-import { BiPencil } from "react-icons/bi";
+import { BiLogIn, BiPencil } from "react-icons/bi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import UserDropdown from "./UserDropdown";
@@ -13,9 +13,12 @@ const UserNav = () => {
   const renderContent = () => {
     if (!userInfo) {
       return (
-        <Link className="user-nav__btn" to="/account">
-          Đăng nhập
-        </Link>
+        <div className="user-nav">
+          <Link className="user-nav__btn" to="/account">
+            <span className="mr-4">Đăng nhập</span>
+            <BiLogIn />
+          </Link>
+        </div>
       );
     } else {
       return (
@@ -28,7 +31,6 @@ const UserNav = () => {
           <UserDropdown idUser={userInfo.id}>
             <Avatar
               className="user-nav__avatar"
-              size={40}
               icon={<UserOutlined />}
               src={`${BASE_URL}/${userInfo.avatar}`}
             />

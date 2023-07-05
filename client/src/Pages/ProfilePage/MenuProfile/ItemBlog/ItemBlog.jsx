@@ -24,7 +24,7 @@ const ItemBlog = ({ blog, blogSave }) => {
         </Link>
 
         <div className="profile-blog__footer">
-          <div>{changeDate(blog.ngay)}</div>
+          <span>{changeDate(blog.ngay)}</span>
 
           {isMyProfile ? (
             blogSave ? (

@@ -9,13 +9,13 @@ import parse from "html-react-parser";
 const ItemBlogHome = ({ baiViet }) => {
   return (
     <div className="blog">
-      <h1 className="blog__header">{baiViet.tieu_de}</h1>
+      <h2 className="blog__header">{baiViet.tieu_de}</h2>
 
       <div className="blog__author">
         <Link to={`/profile/${baiViet.nguoi_dung.id}`}>
           <Avatar
+            className="blog__author-avatar"
             icon={<UserOutlined />}
-            size={40}
             src={`${BASE_URL}/${baiViet.nguoi_dung.avatar}`}
           />
         </Link>
@@ -24,6 +24,7 @@ const ItemBlogHome = ({ baiViet }) => {
           <div className="blog__author-name">
             {baiViet.nguoi_dung.nick_name}
           </div>
+
           <div className="blog__author-date">{changeDate(baiViet.ngay)}</div>
         </div>
       </div>

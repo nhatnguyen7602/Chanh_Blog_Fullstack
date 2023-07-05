@@ -4,7 +4,7 @@ import "./App.css";
 import "normalize.css";
 import Layout from "./Layout/Layout";
 import HomePage from "./Pages/HomePage/HomePage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import { ConfigProvider } from "antd";
@@ -15,10 +15,29 @@ import AccountPage from "./Pages/AccountPage/AccountPage";
 import BackToTop from "./Components/BackToTop/BackToTop";
 import WriteBlogPage from "./Pages/WriteBlogPage/WriteBlogPage";
 import EditBlogPage from "./Pages/EditBlogPage/EditBlogPage";
+import { useEffect } from "react";
+import { serviceLuu } from "./services/serviceLuu";
+import { useDispatch } from "react-redux";
+import { logoutAction } from "./redux/actions/actionUser";
+import { onMessage } from "./utils/message";
+import { WARNING } from "./constants/constantUI";
 
 moment.locale("vi");
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    serviceLuu
+      .getLuuTheoId(1)
+      .then((res) => {})
+      .catch((err) => {
+        if (err.response && err.response.status === 401) {
+          dispatch(logoutAction());
+        }
+      });
+  }, []);
+
   return (
     <ConfigProvider
       theme={{ token: { colorPrimary: "#f2921d", fontFamily: "Ysabeau" } }}

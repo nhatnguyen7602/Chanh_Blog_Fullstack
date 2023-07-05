@@ -1,9 +1,9 @@
 import React from "react";
-import { BiTrash } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
 import { serviceBaiViet } from "../../../../../services/serviceBaiViet";
 import { getBaiVietTheoNguoiDungAction } from "../../../../../redux/actions/actionBlog";
 import { Popconfirm } from "antd";
+import { BsTrash } from "react-icons/bs";
 
 const DeleteItem = ({ blogId }) => {
   const userId = useSelector((state) => state.reducerUser.userInfo?.id);
@@ -30,7 +30,7 @@ const DeleteItem = ({ blogId }) => {
       cancelText="Hủy"
     >
       <button className="profile-blog__btn-delete">
-        <BiTrash />
+        <BsTrash />
       </button>
     </Popconfirm>
   );

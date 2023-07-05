@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Dropdown } from "antd";
+import { Avatar, Dropdown, Popconfirm } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { changeDate } from "../../../../utils/changeDate";
 import { BsDot, BsThreeDots } from "react-icons/bs";
@@ -14,28 +14,6 @@ import InputComment from "./InputComment";
 import { onMessage } from "../../../../utils/message";
 import { BASE_URL } from "../../../../services/configURL";
 
-const items = [
-  {
-    key: "edit",
-    label: (
-      <button className="comment-item__action-more-item">
-        <BiEditAlt />
-        <span className="ml-4">Sửa</span>
-      </button>
-    ),
-  },
-
-  {
-    key: "delete",
-    label: (
-      <button className="comment-item__action-more-item">
-        <BiTrash />
-        <span className="ml-4">Xóa</span>
-      </button>
-    ),
-  },
-];
-
 const ItemComment = ({
   comment,
   handleDeleteComment,
@@ -45,14 +23,45 @@ const ItemComment = ({
   setActiveComment,
   parentId,
 }) => {
+  const items = [
+    {
+      key: "edit",
+      label: (
+        <button className="comment-item__action-more-item">
+          <BiEditAlt />
+          <span className="ml-4">Sửa</span>
+        </button>
+      ),
+    },
+
+    {
+      key: "delete",
+      label: (
+        <Popconfirm
+          placement="rightBottom"
+          title="Xóa bình luận"
+          description="Bạn có chắc muốn xóa bình luận"
+          onConfirm={() => {
+            handleDeleteComment(comment.id);
+          }}
+          okText="Có"
+          cancelText="Hủy"
+        >
+          <button className="comment-item__action-more-item">
+            <BiTrash />
+            <span className="ml-4">Xóa</span>
+          </button>
+        </Popconfirm>
+      ),
+    },
+  ];
+
   const idUser = useSelector((state) => state.reducerUser.userInfo?.id);
   const idBaiViet = useSelector((state) => state.reducerBlog.Blog?.id);
 
   const onClick = ({ key }) => {
     if (key === "edit") {
       setActiveComment({ id: comment.id, type: EDIT_COMMENT });
-    } else {
-      handleDeleteComment(comment.id);
     }
   };
 
@@ -75,9 +84,9 @@ const ItemComment = ({
     <div className="comment-item">
       <div>
         <Avatar
+          className="comment-item__avatar"
           icon={<UserOutlined />}
           src={`${BASE_URL}/${comment.nguoi_dung.avatar}`}
-          size={40}
         />
       </div>
 

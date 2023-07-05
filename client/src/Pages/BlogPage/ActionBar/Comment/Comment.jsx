@@ -15,6 +15,7 @@ const Commnent = () => {
   const [activeComment, setActiveComment] = useState(null);
   const [openDrawer, setOpenDrawer] = useState(false);
   const [commentCount, setCommentCount] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const commentRef = useRef();
 
@@ -96,6 +97,21 @@ const Commnent = () => {
         });
   }, [idBlog, commentCount]);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 63.9375em)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleResize = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("resize", handleResize);
+
+    return () => {
+      mediaQuery.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div>
       <button onClick={handleComment} className="blog__action-btn">
@@ -106,11 +122,12 @@ const Commnent = () => {
       </button>
 
       <Drawer
+        // className="drawer__comment"
         title="Bình luận"
         placement="right"
         onClose={onCloseDrawer}
         open={openDrawer}
-        size={"large"}
+        width={isMobile ? "100%" : "50%"}
       >
         <InputComment
           ref={commentRef}

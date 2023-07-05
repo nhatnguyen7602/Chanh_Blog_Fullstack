@@ -10,7 +10,7 @@ services:
     depends_on:
       - mysql_db
     environment:
-      - DATABASE_URL=mysql://root:1234@mysql_db:3306/db_blog
+      - DATABASE_URL=mysql://root:QTrJfl0R&64@mysql_db:3306/db_blog
     networks:
       - node-network
 
@@ -20,7 +20,7 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_ROOT_PASSWORD=QTrJfl0R&64
       - MYSQL_DATABASE=db_blog
     env_file:
       - .env

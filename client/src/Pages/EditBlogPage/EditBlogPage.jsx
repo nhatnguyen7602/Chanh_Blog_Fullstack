@@ -145,7 +145,7 @@ const EditBlogPage = () => {
 
       <div>
         <label className="write-blog__select" htmlFor="file">
-          "Đổi hình đại diện cho bài viết"
+          Đổi hình đại diện cho bài viết
         </label>
         {formik.errors.hinh_anh && formik.touched.hinh_anh && (
           <p className="profile-form__error">{formik.errors.hinh_anh}</p>

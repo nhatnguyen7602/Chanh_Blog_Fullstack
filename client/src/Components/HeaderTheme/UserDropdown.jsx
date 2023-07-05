@@ -19,7 +19,7 @@ const UserDropdown = ({ children, idUser }) => {
     {
       key: "logout",
       label: (
-        <a>
+        <a className="dropdown">
           <BiLogOut />
           <span className="ml-4">Đăng xuất</span>
         </a>

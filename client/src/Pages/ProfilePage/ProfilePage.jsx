@@ -34,8 +34,8 @@ const ProfilePage = () => {
     <div className="profile">
       <div className="profile-info">
         <Avatar
+          className="profile-info__avatar"
           icon={<UserOutlined />}
-          size={120}
           src={userInfo.avatar ? `${BASE_URL}/${userInfo.avatar}` : null}
         />
 

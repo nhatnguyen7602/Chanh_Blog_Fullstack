@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { BiSearchAlt2 } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { onMessage } from "../../utils/message";
+import { WARNING } from "../../constants/constantUI";
 
 const Search = ({ onSearch }) => {
+  const userInfo = useSelector((state) => state.reducerUser.userInfo);
+
   const [text, setText] = useState("");
 
   return (
@@ -19,7 +23,11 @@ const Search = ({ onSearch }) => {
         onClick={(e) => {
           e.preventDefault();
 
-          onSearch(text);
+          if (!userInfo) {
+            onMessage(WARNING, "Vui lòng đăng nhập!");
+          } else {
+            onSearch(text);
+          }
         }}
         className="search__btn"
       >

@@ -11,7 +11,7 @@ const Footer = () => {
           này.
         </p>
 
-        <div>
+        <div className="footer-link">
           <a
             className="footer__icon"
             href="https://www.facebook.com/NhatNguyen7602"

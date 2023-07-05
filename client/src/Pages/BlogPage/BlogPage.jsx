@@ -27,8 +27,8 @@ const BlogPage = () => {
       <div className="blog__author">
         <Link to={`/profile/${baiViet.nguoi_dung?.id}`}>
           <Avatar
+            className="blog__author-avatar"
             icon={<UserOutlined />}
-            size={40}
             src={`${BASE_URL}/${baiViet.nguoi_dung?.avatar}`}
           />
         </Link>
@@ -37,6 +37,7 @@ const BlogPage = () => {
           <div className="blog__author-name">
             {baiViet.nguoi_dung?.nick_name}
           </div>
+
           <div className="blog__author-date">{changeDate(baiViet.ngay)}</div>
         </div>
       </div>

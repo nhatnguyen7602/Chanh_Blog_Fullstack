@@ -126,7 +126,7 @@ const InfoUser = ({ handleCancel, enableOk }, ref) => {
             onChange={formik.handleChange}
           />
           {formik.errors.email && formik.touched.email && (
-            <p className="profile-input__error">{formik.errors.email}</p>
+            <p className="profile-form__error">{formik.errors.email}</p>
           )}
         </Form.Item>
 
@@ -136,10 +136,10 @@ const InfoUser = ({ handleCancel, enableOk }, ref) => {
             value={formik.values.pass_word}
             onChange={formik.handleChange}
           />
+          {formik.errors.pass_word && formik.touched.pass_word && (
+            <p className="profile-form__error">{formik.errors.pass_word}</p>
+          )}
         </Form.Item>
-        {formik.errors.pass_word && formik.touched.pass_word && (
-          <p className="profile-input__error">{formik.errors.pass_word}</p>
-        )}
 
         <Form.Item label="Avatar">
           <div>
@@ -156,11 +156,7 @@ const InfoUser = ({ handleCancel, enableOk }, ref) => {
           </div>
 
           {imgSrc && (
-            <img
-              style={{ width: 80, height: 80, objectFit: "contain" }}
-              src={imgSrc}
-              alt="..."
-            />
+            <img className="profile-form__img" src={imgSrc} alt="..." />
           )}
         </Form.Item>
       </Form>

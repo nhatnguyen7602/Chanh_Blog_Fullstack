@@ -1,11 +1,16 @@
 import { http } from "./configURL";
-import { serviceLocalStorage } from "./serviceLocalStorage";
 
 export const serviceLuu = {
   postLuu: (data) => {
     let uri = `/api/luu`;
 
     return http.post(uri, data);
+  },
+
+  getLuuTheoId: (id) => {
+    let uri = `/api/luu/${id}`;
+
+    return http.get(uri);
   },
 
   getLuuTheoNguoiDung: (id) => {
