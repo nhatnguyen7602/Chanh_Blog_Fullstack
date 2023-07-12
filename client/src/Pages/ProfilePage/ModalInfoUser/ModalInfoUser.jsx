@@ -27,7 +27,7 @@ const ModalInfoUser = () => {
   };
 
   return (
-    <>
+    <div>
       <button className="profile-info__btn" onClick={showModal}>
         <FaPen />
         <span className="ml-4">Chỉnh sửa thông tin</span>
@@ -48,7 +48,7 @@ const ModalInfoUser = () => {
           enableOk={enableOk}
         />
       </Modal>
-    </>
+    </div>
   );
 };
 export default ModalInfoUser;

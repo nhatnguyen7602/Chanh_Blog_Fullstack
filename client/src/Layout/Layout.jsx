@@ -4,7 +4,7 @@ import Footer from "../Components/FooterTheme/Footer";
 
 const Layout = ({ Component }) => {
   return (
-    <div>
+    <div className="layout">
       <Header />
 
       <div className="grid">{Component}</div>

@@ -5,3 +5,29 @@
 .ck-editor {
   line-height: 1.6;
 }
+
+.ck-reset_all :not(.ck-reset_all-excluded *),
+.ck.ck-reset_all {
+  --ck-color-text: var(--black-color);
+  font-family: "Ysabeau", sans-serif !important;
+}
+
+.ck.ck-toolbar,
+.ck.ck-list {
+  background-color: var(--white-color) !important;
+  border: var(--black2-color);
+}
+
+.ck.ck-editor__main > .ck-editor__editable {
+  background-color: var(--white-color) !important;
+  color: var(--black-color) !important;
+}
+
+.ck.ck-button:not(.ck-disabled):hover,
+a.ck.ck-button:not(.ck-disabled):hover,
+.ck.ck-button:not(.ck-disabled):active,
+a.ck.ck-button:not(.ck-disabled):active,
+.ck.ck-button.ck-on,
+a.ck.ck-button.ck-on {
+  color: var(--black-color) !important;
+}

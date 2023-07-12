@@ -27,7 +27,7 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="layout">
       <Header onSearch={handleSearch} />
 
       <div className="grid">

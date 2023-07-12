@@ -122,7 +122,6 @@ const Commnent = () => {
       </button>
 
       <Drawer
-        // className="drawer__comment"
         title="Bình luận"
         placement="right"
         onClose={onCloseDrawer}

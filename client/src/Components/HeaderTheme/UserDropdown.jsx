@@ -1,5 +1,6 @@
-import { Dropdown, Popconfirm } from "antd";
+import { Dropdown, Switch } from "antd";
 import { BiLogOut, BiUser } from "react-icons/bi";
+import { BsSunFill, BsMoonStars } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutAction } from "../../redux/actions/actionUser";

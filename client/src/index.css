@@ -7,7 +7,8 @@
   --purple-color: #a61f69;
   --white-color: #fff;
   --black-color: #000;
-  --dark-color: #400e32;
+  --black2-color: #292929;
+  --black-opacity-color: rgba(0, 0, 0, 0.2);
 
   /* Font-size */
   --fs-1: 4rem;
@@ -17,46 +18,6 @@
   --fs-5: 1.6rem;
   --fs-6: 1.5rem;
   --fs-7: 1.3rem;
-}
-
-img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-figcaption {
-  text-align: center;
-  font-size: 1.4rem;
-}
-
-blockquote {
-  margin: 50px auto;
-  font-style: italic;
-  padding: 1.2em 30px 1.2em 75px;
-  border-left: 4px solid var(--orange-color);
-  position: relative;
-  background: rgba(242, 205, 92, 0.1);
-}
-
-blockquote::before {
-  content: "\201C";
-  color: var(--orange-color);
-  font-size: 4em;
-  position: absolute;
-  left: 10px;
-  top: -20px;
-}
-
-blockquote::after {
-  content: "";
-}
-
-blockquote span {
-  display: block;
-  color: var(--text-color);
-  font-weight: bold;
-  margin-top: 1em;
 }
 
 .ml-4 {
@@ -69,6 +30,42 @@ blockquote span {
 
 .mb-20 {
   margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+figcaption {
+  text-align: center;
+  font-size: var(--fs-5);
+  color: var(--black2-color);
+}
+
+blockquote {
+  margin: 32px 0;
+  font-style: italic;
+  padding: 8px 20px !important;
+  border-left: 4px solid var(--orange-color) !important;
+  position: relative;
+  background: rgba(242, 205, 92, 0.1);
+}
+
+blockquote::before {
+  content: "\201C";
+  color: var(--orange-color);
+  font-size: var(--fs-1);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+blockquote span {
+  display: block;
+  color: var(--black-color);
+  font-weight: bold;
 }
 
 * {
@@ -85,7 +82,6 @@ html {
   padding: 0;
 }
 
-/* Responsive */
 .grid {
   width: 1200px;
   max-width: 100%;
@@ -94,30 +90,4 @@ html {
 
 .grid__full-width {
   width: 100%;
-}
-
-.grid__row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -5px;
-  margin-right: -5px;
-}
-
-/* Test */
-.grid__col-2 {
-  padding-left: 5px;
-  padding-right: 5px;
-  width: calc((100% / 12) * 2);
-}
-
-.grid__col-2-4 {
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 20%;
-}
-
-.grid__col-10 {
-  padding-left: 5px;
-  padding-right: 5px;
-  width: calc((100% / 12) * 10);
 }
