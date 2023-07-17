@@ -3,7 +3,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -11,15 +11,35 @@ model bai_viet {
   id            Int         @id @default(autoincrement())
   tieu_de       String?     @db.VarChar(255)
   hinh_anh      String?     @db.VarChar(255)
-  noi_dung      String?     @db.LongText
-  ngay          DateTime?   @db.DateTime(0)
+  noi_dung      String?
+  ngay          DateTime?   @db.Timestamp(6)
   nguoi_viet_id Int?
-  nguoi_dung    nguoi_dung? @relation(fields: [nguoi_viet_id], references: [id], onDelete: Cascade, map: "bai_viet_ibfk_1")
+  nguoi_dung    nguoi_dung? @relation(fields: [nguoi_viet_id], references: [id], onDelete: Cascade)
   binh_luan     binh_luan[]
   luu           luu[]
   thich         thich[]
+}
 
-  @@index([nguoi_viet_id], map: "bai_viet_ibfk_1")
+model binh_luan {
+  id              Int         @id @default(autoincrement())
+  ma_bai_viet     Int?
+  ma_nguoi_dung   Int?
+  ngay_binh_luan  DateTime?   @db.Timestamp(6)
+  noi_dung        String?     @db.VarChar(255)
+  id_cha          Int?
+  tag_user_name   String?     @db.VarChar(255)
+  binh_luan       binh_luan?  @relation("binh_luanTobinh_luan", fields: [id_cha], references: [id], onDelete: Cascade)
+  other_binh_luan binh_luan[] @relation("binh_luanTobinh_luan")
+  bai_viet        bai_viet?   @relation(fields: [ma_bai_viet], references: [id], onDelete: Cascade)
+  nguoi_dung      nguoi_dung? @relation(fields: [ma_nguoi_dung], references: [id], onDelete: Cascade)
+}
+
+model luu {
+  id            Int         @id @default(autoincrement())
+  ma_bai_viet   Int?
+  ma_nguoi_dung Int?
+  bai_viet      bai_viet?   @relation(fields: [ma_bai_viet], references: [id], onDelete: Cascade)
+  nguoi_dung    nguoi_dung? @relation(fields: [ma_nguoi_dung], references: [id], onDelete: Cascade)
 }
 
 model nguoi_dung {
@@ -35,43 +55,11 @@ model nguoi_dung {
   thich     thich[]
 }
 
-model binh_luan {
-  id                                      Int         @id @default(autoincrement())
-  ma_bai_viet                             Int?
-  ma_nguoi_dung                           Int?
-  ngay_binh_luan                          DateTime?   @db.DateTime(0)
-  noi_dung                                String?     @db.VarChar(255)
-  id_cha                                  Int?
-  tag_user_name                           String?     @db.VarChar(255)
-  bai_viet                                bai_viet?   @relation(fields: [ma_bai_viet], references: [id], onDelete: Cascade, map: "binh_luan_ibfk_1")
-  nguoi_dung                              nguoi_dung? @relation(fields: [ma_nguoi_dung], references: [id], onDelete: Cascade, map: "binh_luan_ibfk_2")
-  nguoi_dung_binh_luan_id_chaTonguoi_dung binh_luan?  @relation("binh_luan_id_chaTonguoi_dung", fields: [id_cha], references: [id], onDelete: Cascade, map: "binh_luan_ibfk_3")
-  binh_luan_binh_luan_id_chaTonguoi_dung  binh_luan[] @relation("binh_luan_id_chaTonguoi_dung")
-
-  @@index([ma_bai_viet], map: "binh_luan_ibfk_1")
-  @@index([ma_nguoi_dung], map: "binh_luan_ibfk_2")
-  @@index([id_cha], map: "binh_luan_ibfk_3")
-}
-
 model thich {
   id            Int         @id @default(autoincrement())
   ma_bai_viet   Int?
   ma_nguoi_dung Int?
-  ngay_thich    DateTime?   @db.DateTime(0)
-  bai_viet      bai_viet?   @relation(fields: [ma_bai_viet], references: [id], onDelete: Cascade, map: "thich_ibfk_1")
-  nguoi_dung    nguoi_dung? @relation(fields: [ma_nguoi_dung], references: [id], onDelete: Cascade, map: "thich_ibfk_2")
-
-  @@index([ma_bai_viet], map: "thich_ibfk_1")
-  @@index([ma_nguoi_dung], map: "thich_ibfk_2")
-}
-
-model luu {
-  id            Int         @id @default(autoincrement())
-  ma_bai_viet   Int?
-  ma_nguoi_dung Int?
-  bai_viet      bai_viet?   @relation(fields: [ma_bai_viet], references: [id], onDelete: Cascade, map: "luu_ibfk_1")
-  nguoi_dung    nguoi_dung? @relation(fields: [ma_nguoi_dung], references: [id], onDelete: Cascade, map: "luu_ibfk_2")
-
-  @@index([ma_bai_viet], map: "luu_ibfk_1")
-  @@index([ma_nguoi_dung], map: "luu_ibfk_2")
+  ngay_thich    DateTime?   @db.Timestamp(6)
+  bai_viet      bai_viet?   @relation(fields: [ma_bai_viet], references: [id], onDelete: Cascade)
+  nguoi_dung    nguoi_dung? @relation(fields: [ma_nguoi_dung], references: [id], onDelete: Cascade)
 }

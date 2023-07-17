@@ -1,7 +1,7 @@
 import axios from "axios";
 import { serviceLocalStorage } from "./serviceLocalStorage";
 
-export const BASE_URL = "https://api.nhatnguyen.click";
+export const BASE_URL = "http://localhost:8080";
 
 const http = axios.create({
   baseURL: BASE_URL,

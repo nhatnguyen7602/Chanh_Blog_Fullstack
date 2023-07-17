@@ -111,6 +111,10 @@
 }
 
 .user-nav__avatar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: var(--fs-3) !important;
   margin-left: 8px;
   width: 48px;
   height: 48px;
@@ -156,6 +160,10 @@
 }
 
 .blog__author-avatar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: var(--fs-3) !important;
   width: 48px;
   height: 48px;
 }
@@ -454,6 +462,10 @@
 }
 
 .comment-item__avatar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: var(--fs-3) !important;
   width: 48px;
   height: 48px;
 }
@@ -541,10 +553,17 @@
 }
 
 .profile-info {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .profile-info__avatar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: var(--fs-1) !important;
   width: 120px;
   height: 120px;
 }
@@ -867,6 +886,10 @@
     display: none;
   }
 
+  .user-nav__avatar {
+    font-size: var(--fs-5) !important;
+  }
+
   .user-nav__avatar,
   .comment-item__avatar,
   .blog__author-avatar,
@@ -881,6 +904,10 @@
 
   .blog {
     padding: 0 8px 20px 8px;
+  }
+
+  .blog__author-avatar {
+    font-size: var(--fs-5) !important;
   }
 
   .blog__author-name,
@@ -916,9 +943,14 @@
     font-size: var(--fs-7);
   }
 
+  .comment-item__avatar {
+    font-size: var(--fs-5) !important;
+  }
+
   .profile-info__avatar {
     width: 80px;
     height: 80px;
+    font-size: var(--fs-3) !important;
   }
 
   .profile-info__name {
@@ -1062,6 +1094,10 @@
     font-size: var(--fs-5);
   }
 
+  .user-nav__avatar {
+    font-size: var(--fs-4) !important;
+  }
+
   .user-nav__avatar,
   .comment-item__avatar,
   .blog__author-avatar,
@@ -1076,6 +1112,10 @@
 
   .blog {
     padding: 0 16px 20px 16px;
+  }
+
+  .blog__author-avatar {
+    font-size: var(--fs-4) !important;
   }
 
   .blog__author-name,
@@ -1100,7 +1140,12 @@
     font-size: var(--fs-4);
   }
 
+  .comment-item__avatar {
+    font-size: var(--fs-4) !important;
+  }
+
   .profile-info__avatar {
+    font-size: var(--fs-2) !important;
     width: 100px;
     height: 100px;
   }
